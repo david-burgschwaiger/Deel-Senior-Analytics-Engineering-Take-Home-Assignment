@@ -58,6 +58,8 @@ The lineage graph reflects the layered architecture described above. The source 
 
 ## 2a) Acceptance rate over time
 
+The acceptance rate for transactions from Globepay were around 70% in the first half of 2019. The highest acceptance rate was recorded in June (71.6%) while the lowest was observed in April (67.7%).
+
 ```sql
 select
    date_trunc(month, globalpay_transaction_date) as transaction_month,
@@ -67,6 +69,9 @@ select
 from mart_revenue__card_transaction
 group by 1
 ```
+
+<img width="752" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/cc1e6913-80e3-4c55-9b83-06df305031e0">
+
 
 ## 2b) Countries where the amount of declined transactions went over $25M
 
