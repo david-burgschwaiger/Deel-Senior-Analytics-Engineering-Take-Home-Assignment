@@ -74,6 +74,7 @@ group by 1
 
 
 ## 2b) Countries where the amount of declined transactions went over $25M
+The following query shows all countries and their amount of declined transactions over the whole available time frame in the data set.
 
 ```sql
 select
@@ -85,6 +86,9 @@ from mart_revenue__card_transaction
 where transaction_state = 'declined'
 group by 1
 ```
+
+<img width="685" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/ed52f929-2024-45ce-89e0-67b4a0161ac5">
+
 
 ## 2c) Which transactions are missing chargeback data?
 
