@@ -37,7 +37,7 @@ In this project, I tried to follow the dbt guidelines as best as I could. As a r
 
 ## 1c) Lineage Graph
 The lineage graph reflects the layered architecture described above. The source data was ingested into Snowflake, and cleaned, tested and aligned in the staging layer. Computations like joins and aggregations happen in the refined layer whereas the mart layer is the final layer that provides the data for the analysts and all consumers of the data.
-<img width="1084" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/875a9003-e283-4bf3-b2bb-762e2b6fd006">
+<img width="1448" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/e1224c6a-3250-4d50-a974-833c3423772e">
 
 ## 1d) Tips around macros, data validation, and documentation
 1. Macros:
