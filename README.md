@@ -26,3 +26,16 @@ In this section I looked at the data from two perspectives. First I made sure th
 - Checking `external_ref` on the `acceptance_report` table shows changed status and amount.
 - We might want to reach out to Globepay to make sure we properly capture the nature of the data (data contract).
 
+### Initial Data Exploration
+sdfas
+
+## Summary of your model architecture
+In this project, I tried to follow the dbt guidelines as best as I could. As a result, this dbt project emphasises:
+
+1. **Modularization**: Break down your dbt project into modular pieces such as models, macros, tests, and seeds. This makes it easier to manage and maintain your codebase, and encourages reusability.
+2. **Layered Architecture**: Organize your models into layers based on their purpose and level of abstraction. Common layers include staging, transformations, dimensions, and facts. This separation of concerns helps keep your codebase clean and understandable.
+3. **Incremental Builds**: Use incremental builds whenever possible to minimize processing time and improve efficiency. Incremental models only rebuild when their source data or underlying logic changes, rather than every time the project is run.
+4. **Documentation**: Document your models, macros, and datasets thoroughly using dbt's built-in documentation features. This helps ensure that others (and future you) can understand and use your code effectively.
+5. **Version Control**: Use version control (such as Git) to manage changes to your dbt project. This allows you to track changes over time, collaborate with others, and revert to previous versions if needed.
+6. **Testing**: Implement tests for your models to ensure data quality, integrity, and accuracy. dbt provides built-in testing functionality for common data quality checks like null values, uniqueness, and referential integrity.
+7. **Parameterization**: Parameterize your models to make them more flexible and reusable across different environments or use cases. Use variables and configurations to control behavior and settings.
