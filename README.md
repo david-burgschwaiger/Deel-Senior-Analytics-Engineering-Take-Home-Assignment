@@ -1,9 +1,8 @@
 # Deel Senior Analytics Take Home Assignment
 
-## Preliminary data exploration
+## 1a) Preliminary data exploration
 In this section I focused on the data quality of the raw data provided. I made sure that the data makes sense and that there's no anomalies in the dataset.
 
-### Data Quality
 1. Uniqueness & Relationship Tests
 - **External_ref Fields**: Both tables have no duplicate or null values.
 - **Ref (Acceptance_report Table)**: No duplicate or null values.
@@ -26,7 +25,7 @@ In this section I focused on the data quality of the raw data provided. I made s
 - Checking `external_ref` on the `acceptance_report` table shows changed status and amount.
 - We might want to reach out to Globepay to make sure we properly capture the nature of the data (data contract).
 
-## Summary of your model architecture
+## 1b) Summary of your model architecture
 In this project, I tried to follow the dbt guidelines as best as I could. As a result, this dbt project emphasises:
 
 1. **Modularization**: I broke down this dbt project into modular pieces such as models, macros, and tests. This makes it easier to manage and maintain the codebase, and encourages reusability.
@@ -36,11 +35,11 @@ In this project, I tried to follow the dbt guidelines as best as I could. As a r
 5. **Testing**: I implemented a couple of generic tests for your models to ensure data quality, integrity, and accuracy. I used the most common built-in testing functionality for common data quality checks like null values, uniqueness, and referential integrity.
 7. **Parameterization**: Parameterize your models to make them more flexible and reusable across different environments or use cases. Use variables and configurations to control behavior and settings. Tagging the models in the dbt project is especially useful
 
-## Lineage Graph
+## 1c) Lineage Graph
 The lineage graph reflects the layered architecture described above. The source data was ingested into Snowflake, and cleaned, tested and aligned in the staging layer. Computations like joins and aggregations happen in the refined layer whereas the mart layer is the final layer that provides the data for the analysts and all consumers of the data.
 <img width="1084" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/875a9003-e283-4bf3-b2bb-762e2b6fd006">
 
-## Tips around macros, data validation, and documentation
+## 1d) Tips around macros, data validation, and documentation
 1. Macros:
 - Use Macros for Reusability: I created one (`return_format_string`) macros for reusable code snippets or logic that are used across multiple models. This promotes code reuse and simplifies maintenance.
 - Organize Macros: I recommend to organise macros into logical groups within the macros directory of the dbt project. Using subdirectories to further categorize macros based on their functionality or purpose is super useful.
