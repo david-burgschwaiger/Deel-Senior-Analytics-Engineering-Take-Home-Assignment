@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: refined_globepay_transaction
+    description: Card transactions from the Globepay system.
+    columns:
+      - name: globepay_transaction_id
+        description: Unique identifier for the transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: globepay_transaction_event_id
+        description: Globeay transaction event ID.
+
+      - name: transaction_source
+        description: Source of the transaction.
+        tests:
+          - accepted_values:
+              values: ['globalpay']
+
+      - name: billing_country
+        description: Billing country. Accepts only values present in the rates field.
+        tests:
+          - accepted_values:
+              values: ['CAD', 'EUR', 'MXN', 'USD', 'SGD', 'AUD', 'GBP']
+
+      - name: transaction_state
+        description: Transaction state.
+
+      - name: is_cvv_provided
+        description: Indicates whether CVV was provided.
+        tests:
+          - accepted_values:
+              values: ['true', 'false']
+
+      - name: is_chargedback
+        description: Indicates whether the transaction was charged back.
+        tests:
+          - accepted_values:
+              values: ['true', 'false']
+
+      - name: exchange_rate_list
+        description: List containing currency exchange rates for various currencies.
+
+      - name: billing_currency
+        description: Currency used for billing purposes in the transaction.
+
+      - name: currency_multiplier_start_position
+        description: Position within the exchange rate list where the currency multiplier starts.
+
+      - name: currency_multiplier_end_position
+        description: Position within the exchange rate list where the currency multiplier ends.
+
+      - name: currency_exchange_rate
+        description: Exchange rate of of the transaction amount in USD.
+
+      - name: amount_in_usd
+        description: Amount of the transaction in USD.
+
+      - name: amount
+        description: Amount of the transaction. In the currency of the country.
+
+      - name: globepay_transaction_at
+        description: Timestamp indicating the exact time of the transaction in the Globepay system.
+
+      - name: globepay_transaction_date
+        description: Date of the transaction in the GlobePay system.

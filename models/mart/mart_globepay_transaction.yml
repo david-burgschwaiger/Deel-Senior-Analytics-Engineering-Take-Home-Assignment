@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: mart_globepay_transaction
+    description: Card transactions from the Globepay system.
+    columns:
+      - name: globepay_transaction_id
+        description: Unique identifier for the transaction.
+
+      - name: globepay_transaction_event_id
+        description: Globeay transaction event ID.
+
+      - name: transaction_source
+        description: Source of the transaction.
+
+      - name: billing_country
+        description: Billing country. Accepts only values present in the rates field.
+
+      - name: transaction_state
+        description: Transaction state.
+
+      - name: is_cvv_provided
+        description: Indicates whether CVV was provided.
+
+      - name: is_chargedback
+        description: Indicates whether the transaction was charged back.
+
+      - name: billing_currency
+        description: Currency used for billing purposes in the transaction.
+
+      - name: currency_exchange_rate
+        description: Exchange rate of of the transaction amount in USD.
+
+      - name: amount_in_usd
+        description: Amount of the transaction in USD.
+
+      - name: amount
+        description: Amount of the transaction. In the currency of the country.
+
+      - name: globepay_transaction_at
+        description: Timestamp indicating the exact time of the transaction in the Globepay system.
+
+      - name: globepay_transaction_date
+        description: Date of the transaction in the GlobePay system.

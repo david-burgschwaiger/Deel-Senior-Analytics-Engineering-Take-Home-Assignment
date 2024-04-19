@@ -1,6 +1,6 @@
 select
     -- keys
-    external_ref AS globalpay_transaction_id,  
+    external_ref AS globepay_transaction_id,  
 
     -- dimensions
     lower(source) AS chargeback_source, 
