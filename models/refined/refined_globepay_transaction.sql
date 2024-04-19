@@ -1,7 +1,7 @@
 select
     -- keys
-    tx.globalpay_transaction_id,
-    tx.globalpay_transaction_event_id,
+    tx.globepay_transaction_id,
+    tx.globepay_transaction_event_id,
 
     -- properties
     tx.transaction_source,
@@ -31,9 +31,9 @@ select
     tx.amount,
 
     -- dates
-    tx.globalpay_transaction_at,
-    tx.globalpay_transaction_date
+    tx.globepay_transaction_at,
+    tx.globepay_transaction_date
 from {{ ref("staging_globepay_acceptance") }} as tx
 left join
     {{ ref("staging_globepay_chargeback") }} as cb
-    on tx.globalpay_transaction_id = cb.globalpay_transaction_id
+    on tx.globepay_transaction_id = cb.globepay_transaction_id

@@ -10,8 +10,8 @@ models:
           - not_null
           - unique
 
-      - name: globalpay_transaction_event_id
-        description: GlobalPay transaction event ID.
+      - name: globepay_transaction_event_id
+        description: GlobePay transaction event ID.
 
       - name: transaction_source
         description: Transaction source.
@@ -37,8 +37,8 @@ models:
       - name: amount
         description: Amount of the transaction. In the currency of the country.
 
-      - name: globalpay_transaction_at
-        description: Timestamp indicating the exact time of the transaction in the GlobalPay system.
+      - name: globepay_transaction_at
+        description: Timestamp indicating the exact time of the transaction in the Globepay system.
 
-      - name: globalpay_transaction_date
-        description: Date of the transaction in the GlobalPay system.
+      - name: globepay_transaction_date
+        description: Date of the transaction in the GlobePay system.

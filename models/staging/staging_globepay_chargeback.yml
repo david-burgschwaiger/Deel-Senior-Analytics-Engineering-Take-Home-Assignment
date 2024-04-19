@@ -1,0 +1,19 @@
+models:
+  - name: staging_globepay_chargeback
+    description: Stores data related to chargeback transactions from the Globepay system.
+
+    columns:
+      - name: globepay_transaction_id
+        description: Unique identifier for each transaction from Globepay data.
+        tests:
+          - not_null
+          - unique
+
+      - name: chargeback_source
+        description: Defines the origin of the chargeback source.
+        tests:
+          - accepted_values:
+              values: ['globalpay']
+
+      - name: is_chargeback
+        description: Boolean indicating if the transaction had a chargeback event.

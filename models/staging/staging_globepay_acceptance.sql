@@ -1,7 +1,7 @@
 select
     -- keys
-    external_ref as globalpay_transaction_id,
-    ref as globalpay_transaction_event_id,
+    external_ref as globepay_transaction_id,
+    ref as globepay_transaction_event_id,
 
     -- properties
     lower(source) as transaction_source,
@@ -15,6 +15,6 @@ select
     amount,
 
     -- dates
-    date_time as globalpay_transaction_at,
-    to_date(date_time) as globalpay_transaction_date
+    date_time as globepay_transaction_at,
+    to_date(date_time) as globepay_transaction_date
 from {{ source("globepay", "acceptance") }}
