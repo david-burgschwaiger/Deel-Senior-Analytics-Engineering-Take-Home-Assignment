@@ -8,6 +8,12 @@ models:
         tests:
           - not_null
           - unique
+          - relationships:
+              to: ref('staging_globepay_acceptance')
+              field: globepay_transaction_id
+              config:
+                severity: error
+                error_if: ">0"
 
       - name: chargeback_source
         description: Defines the origin of the chargeback source.
