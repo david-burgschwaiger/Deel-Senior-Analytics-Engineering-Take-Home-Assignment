@@ -56,3 +56,31 @@ The lineage graph reflects the layered architecture described above. The source 
 - Use Markdown: I like to write documentation in the Git repos using Markdown syntax to format text, add links, and include images or diagrams. Markdown is supported by dbt's documentation rendering engine and provides a flexible way to create rich documentation.
 - Keep Documentation Up-to-date: Regularly review and update documentation to reflect changes in your dbt project, data schema, or business requirements. Outdated documentation can lead to confusion and errors.
 
+## 2a) Acceptance rate over time
+
+```sql
+select
+   date_trunc(month, globalpay_transaction_date) as transaction_month,
+   count(case when transaction_state = 'accepted' then globalpay_transaction_id END) as nb_transaction_accepted,
+   count(globalpay_transaction_id) as nb_transaction,
+   nb_transaction_accepted / nb_transaction
+from mart_revenue__card_transaction
+group by 1
+```
+
+## 2b) Countries where the amount of declined transactions went over $25M
+
+```sql
+select
+   country,
+   transaction_state,
+   SUM(amount_in_usd) as sum_amount_in_usd,
+   sun_amount_in_usd >= 25000000 as is_greater_than_25M
+from mart_revenue__card_transaction
+where transaction_state = 'declined'
+group by 1
+```
+
+## 2c) Which transactions are missing chargeback data?
+
+
