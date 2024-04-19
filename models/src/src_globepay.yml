@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: globepay
+    database: deel  
+    schema: GLOBEPAY  
+    tables:
+      - name: acceptance
+      - name: chargeback

@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: staging_globepay_acceptance
+    description: Stores data related to transactions from the Globepay system.
+    columns:
+      - name: globepay_transaction_id
+        description: Unique identifier for each transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: globalpay_transaction_event_id
+        description: GlobalPay transaction event ID.
+
+      - name: transaction_source
+        description: Transaction source.
+        tests:
+          - accepted_values:
+              values: ['globalpay']
+
+      - name: billing_country
+        description: Billing country.
+
+      - name: transaction_state
+        description: Transaction state.
+
+      - name: is_cvv_provided
+        description: Boolean indicating whether CVV was provided.
+
+      - name: exchange_rate_list
+        description: List containing currency exchange rates for various currencies.
+
+      - name: billing_currency
+        description: Currency used for billing purposes in the transaction.
+
+      - name: amount
+        description: Amount of the transaction. In the currency of the country.
+
+      - name: globalpay_transaction_at
+        description: Timestamp indicating the exact time of the transaction in the GlobalPay system.
+
+      - name: globalpay_transaction_date
+        description: Date of the transaction in the GlobalPay system.
