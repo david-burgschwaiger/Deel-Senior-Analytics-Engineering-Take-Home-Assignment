@@ -66,7 +66,7 @@ select
    count(case when transaction_state = 'accepted' then globalpay_transaction_id END) as nb_transaction_accepted,
    count(globalpay_transaction_id) as nb_transaction,
    nb_transaction_accepted / nb_transaction
-from mart_revenue__card_transaction
+from mart_globepay_transaction
 group by 1
 ```
 
@@ -82,7 +82,7 @@ select
    transaction_state,
    SUM(amount_in_usd) as sum_amount_in_usd,
    sun_amount_in_usd >= 25000000 as is_greater_than_25M
-from mart_revenue__card_transaction
+from mart_globepay_transaction
 where transaction_state = 'declined'
 group by 1
 ```
@@ -91,5 +91,31 @@ group by 1
 
 
 ## 2c) Which transactions are missing chargeback data?
+According to the data sample, every transaction has chargeback information (either true or fales). If there's a doubt about the data quality, I'd recommend to create a dbt test that checks the relationship between chargebacks and accepted transactions.
 
+```sql
+select
+   is_chargedback,
+   count(*) as nb_transactions
+from mart_globepay_transaction
+group by 1
+```
+The proposed test can be created in staging as following:
+```yml
+models:
+  - name: staging_globepay_chargeback
+    description: Stores data related to chargeback transactions from the Globepay system.
 
+    columns:
+      - name: globepay_transaction_id
+        description: Unique identifier for each transaction from Globepay data.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('staging_globepay_acceptance')
+              field: globepay_transaction_id
+              config:
+                severity: error
+                error_if: ">0"
+```
