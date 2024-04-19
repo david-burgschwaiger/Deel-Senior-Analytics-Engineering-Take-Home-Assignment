@@ -43,4 +43,21 @@ In this project, I tried to follow the dbt guidelines as best as I could. As a r
 ## Lineage Graph
 <img width="1084" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/875a9003-e283-4bf3-b2bb-762e2b6fd006">
 
+## Tips around macros, data validation, and documentation
+1. Macros:
+- Use Macros for Reusability: Create macros for reusable code snippets or logic that are used across multiple models. This promotes code reuse and simplifies maintenance.
+- Organize Macros: Organize your macros into logical groups within the macros directory of your dbt project. Use subdirectories to further categorize macros based on their functionality or purpose.
+- Version Control Macros: Version control your macros along with the rest of your dbt project. This ensures that changes to macros are tracked and can be reverted if necessary.
+- Document Macros: Document your macros thoroughly using dbt's built-in documentation features. Include descriptions, usage examples, and parameter details to help users understand how to use the macro.
 
+2. Data Validation:
+- Implement Data Quality Tests: Use dbt's built-in testing functionality to implement data quality tests for your models. Include tests for null values, uniqueness, referential integrity, and other data quality checks.
+- Automate Testing: Automate the execution of data validation tests as part of your dbt workflow. Use scheduling or CI/CD tools to run tests automatically on a regular basis or in response to changes in your data pipeline.
+- Custom Tests: Implement custom tests using SQL or Jinja to validate specific data quality requirements or business rules that are not covered by built-in dbt tests.
+- Alerting: Set up alerting mechanisms to notify stakeholders when data validation tests fail. This ensures that data quality issues are addressed promptly and transparently.
+
+3. Documentation:
+- Document Models: Document your dbt models using dbt's built-in documentation features. Include descriptions, column definitions, data lineage, and other relevant information to help users understand the purpose and structure of each model.
+- Use Markdown: Write documentation using Markdown syntax to format text, add links, and include images or diagrams. Markdown is supported by dbt's documentation rendering engine and provides a flexible way to create rich documentation.
+- Keep Documentation Up-to-date: Regularly review and update documentation to reflect changes in your dbt project, data schema, or business requirements. Outdated documentation can lead to confusion and errors.
+- Document Macros and Tests: Document macros, tests, and other code artifacts in your dbt project to provide context and guidance for users. Include explanations, usage examples, and parameter descriptions to facilitate understanding and adoption.
