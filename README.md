@@ -39,3 +39,8 @@ In this project, I tried to follow the dbt guidelines as best as I could. As a r
 5. **Version Control**: Use version control (such as Git) to manage changes to your dbt project. This allows you to track changes over time, collaborate with others, and revert to previous versions if needed.
 6. **Testing**: Implement tests for your models to ensure data quality, integrity, and accuracy. dbt provides built-in testing functionality for common data quality checks like null values, uniqueness, and referential integrity.
 7. **Parameterization**: Parameterize your models to make them more flexible and reusable across different environments or use cases. Use variables and configurations to control behavior and settings.
+
+## Lineage Graph
+<img width="1084" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/875a9003-e283-4bf3-b2bb-762e2b6fd006">
+
+
