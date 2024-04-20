@@ -23,7 +23,7 @@ models:
         description: Billing country. Accepts only values present in the rates field.
         tests:
           - accepted_values:
-              values: ['CAD', 'EUR', 'MXN', 'USD', 'SGD', 'AUD', 'GBP']
+              values: ['ca', 'fr', 'mx', 'us', 'ae', 'uk']
 
       - name: transaction_state
         description: Transaction state.
@@ -45,6 +45,9 @@ models:
 
       - name: billing_currency
         description: Currency used for billing purposes in the transaction.
+        tests:
+          - accepted_values:
+              values: ['mxn', 'usd', 'eur', 'cad', 'gbp']
 
       - name: currency_exchange_rate
         description: Exchange rate of of the transaction amount in USD.

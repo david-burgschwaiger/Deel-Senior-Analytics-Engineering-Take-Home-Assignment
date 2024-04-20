@@ -13,8 +13,8 @@ select
     -- metadata
     tx.exchange_rate_list,
     tx.billing_currency,
-    json_extract_path_text(parse_json(rates), currency) as currency_exchange_rate,
-    tx.amount / currency_multiplier_value as amount_in_usd,
+    json_extract_path_text(parse_json(tx.exchange_rate_list), tx.billing_currency) as currency_exchange_rate,
+    tx.amount / currency_exchange_rate as amount_in_usd,
     tx.amount,
 
     -- dates
