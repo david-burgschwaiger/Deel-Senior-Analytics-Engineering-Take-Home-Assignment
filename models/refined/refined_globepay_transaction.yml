@@ -46,12 +46,6 @@ models:
       - name: billing_currency
         description: Currency used for billing purposes in the transaction.
 
-      - name: currency_multiplier_start_position
-        description: Position within the exchange rate list where the currency multiplier starts.
-
-      - name: currency_multiplier_end_position
-        description: Position within the exchange rate list where the currency multiplier ends.
-
       - name: currency_exchange_rate
         description: Exchange rate of of the transaction amount in USD.
 

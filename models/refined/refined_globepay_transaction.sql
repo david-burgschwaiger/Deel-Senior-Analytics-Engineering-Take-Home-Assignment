@@ -13,20 +13,7 @@ select
     -- metadata
     tx.exchange_rate_list,
     tx.billing_currency,
-    charindex(tx.billing_currency, tx.exchange_rate_list)
-        + len(tx.billing_currency)
-        + 2
-    as currency_multiplier_start_position, --- determining the starting position of the used currency in the list
-    case
-        when charindex(',', rates, multiplier_first_position) > 0
-        then charindex(',', rates, multiplier_first_position)
-        else charindex('}', rates, multiplier_first_position)  -- the last currency do not have a comma
-    end as multiplier_last_position, --- determining the last position of the used currency in the list
-    substring(
-        tx.exchange_rate_list,
-        currency_multiplier_start_position,
-        currency_multiplier_end_position - currency_multiplier_start_position
-    ) as currency_exchange_rate,
+    json_extract_path_text(parse_json(rates), currency) as currency_exchange_rate,
     tx.amount / currency_multiplier_value as amount_in_usd,
     tx.amount,
 
