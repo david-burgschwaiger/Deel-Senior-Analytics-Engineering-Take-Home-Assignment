@@ -1,5 +1,12 @@
 # Deel Senior Analytics Take Home Assignment
 
+In order to answer the questions of the case, I've uploaded the raw data into Snowflake, transformed and validated the data in dbt and visualised the outcome from the marts in Metbase. 
+<img width="919" alt="image" src="https://github.com/david-burgschwaiger/Deel-Senior-Analytics-Engineering-Take-Home-Assignment/assets/91904138/51cead25-1424-42fa-8aa3-65a0fecf00b2">
+
+All answers contain references to this Git repo. In many cases, I've linked some points of my answers to a specific model or yml file for further illustration.
+Thanks for having a look at my case. I'd be super excited to be a part of Deel and contribute to your modern data stack.
+
+
 ## 1a) Preliminary data exploration
 In this section I focused on the data quality of the raw data provided. I made sure that the data makes sense and that there's no anomalies in the dataset.
 
